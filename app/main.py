@@ -1,6 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask
 
 from app.blueprints.group_blueprint import group_bp
+from app.blueprints.product_list_bluprint import bp_producer
 from app.database.postgres_connection import user_engine
 from app.init_db import initialize_db
 from app.models import Base
@@ -13,6 +14,9 @@ app = Flask(__name__)
 app.register_blueprint(login_bp)
 app.register_blueprint(sign_up_bp)
 app.register_blueprint(group_bp)
+
+app.register_blueprint(bp_producer)
+
 
 if __name__ == '__main__':
     app.run()
